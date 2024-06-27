@@ -14,7 +14,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   app.use(bodyParser.json());
 
   // GET /filteredimage?image_url={{URL}}
-  app.get("/filteredimage", async (req:any, res:any) => {
+  app.get("/filteredimage", async (req:express.Request, res:express.Response) => {
     let { image_url } = req.query;
     if (!image_url)
       return res.status(400).send({ message: "The image url is required" });
